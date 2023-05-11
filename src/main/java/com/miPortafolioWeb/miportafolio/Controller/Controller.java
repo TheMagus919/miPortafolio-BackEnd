@@ -41,7 +41,7 @@ public class Controller {
     private JWTUtil jwtUtil;
     
     //CONTROLLER USUARIO
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody Usuario usuario) {
 
@@ -60,61 +60,61 @@ public class Controller {
         return portaServ.getUsuarios();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     private boolean validarToken(String token) {
         String usuarioId = jwtUtil.getKey(token);
         return usuarioId != null;
     }
     
     //CONTROLLER EDUCACION
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @GetMapping("/educacion")
     @ResponseBody
     public List<Educacion> mostrarEstudios(){
         return portaServ.verEducacion();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PostMapping("/educacion/agregar")
     public void cargarEstudio(@RequestBody Educacion edu){
         portaServ.cargarEducacion(edu);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/educacion/editar")
     public void editarEducacion(@RequestBody Educacion estu){
         cargarEstudio(estu);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @DeleteMapping("/educacion/eliminar/{id}")
     public void eliminarEstudio(@PathVariable String id){
         portaServ.eliminarEducacion(id);
     }
     
     //CONTROLLER PERFIL
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @GetMapping("/perfil/{idPerfil}")
     @ResponseBody
     public Perfil mostrarPerfil(@PathVariable int idPerfil){
         return portaServ.verPerfil(idPerfil);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/perfil/cambiarfoto/{idPerfil}")
     @ResponseBody
     public void cambiarFoto(@RequestBody String imagen, @PathVariable int idPerfil){
         portaServ.cambiarFoto(imagen, idPerfil);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/perfil/cambiarinfo/{idPerfil}")
     @ResponseBody
     public void cambiarInfo(@RequestBody String info, @PathVariable int idPerfil){
         portaServ.cambiarInfo(info, idPerfil);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/perfil/editar")
     @ResponseBody
     public void cargarPerfil(@RequestBody Perfil perf){   
@@ -123,78 +123,78 @@ public class Controller {
     }
     
     //CONTROLLER HABILIDADES
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @GetMapping("/habilidades")
     @ResponseBody
     public List<Habilidades> mostrarHabilidades(){
         return portaServ.verHabilidades();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PostMapping("/habilidades/agregar")
     public void cargarHabilidad(@RequestBody Habilidades hab){
         portaServ.cargarHabilidad(hab);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/habilidades/editar")
     public void editarHabilidad(@RequestBody Habilidades hab){
         cargarHabilidad(hab);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @DeleteMapping("/habilidades/eliminar/{id}")
     public void eliminarHabilidad(@PathVariable String id){
         portaServ.eliminarHabilidad(id);
     }
     
     //CONTROLLER EXPERIENCIAS
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @GetMapping("/experiencias")
     @ResponseBody
     public List<Experiencias> mostrarExperiencias(){
         return portaServ.verExperiencias();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PostMapping("/experiencias/agregar")
     public void cargarExperiencias(@RequestBody Experiencias exp){
         portaServ.cargarExperiencias(exp);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/experiencias/editar")
     public void editarExperiencias(@RequestBody Experiencias exp){
         cargarExperiencias(exp);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @DeleteMapping("/experiencias/eliminar/{id}")
     public void eliminarExperiencia(@PathVariable String id){
         portaServ.eliminarExperiencia(id);
     }
     
     //CONTROLLER PROYECTOS
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @GetMapping("/proyectos")
     @ResponseBody
     public List<Proyectos> mostrarProyectos(){
         return portaServ.verProyectos();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PostMapping("/proyectos/agregar")
     public void cargarProyectos(@RequestBody Proyectos proy){   
         portaServ.cargarProyectos(proy);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @PutMapping("/proyectos/editar")
     public void editarProyecto(@RequestBody Proyectos proy){  
         cargarProyectos(proy);
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://miportafolioweb-96b87.web.app")
     @DeleteMapping("/proyectos/eliminar/{id}")
     public void eliminarProyecto(@PathVariable String id){
         portaServ.eliminarProyecto(id);
